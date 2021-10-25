@@ -32,7 +32,13 @@ public class MainClass {
 
         System.out.println();
 
-        button.submit();
+        //button.submit();
+
+        driver.findElement(By.xpath("//div/a[@class=\"HeaderMenu-link flex-shrink-0 no-underline\"]")).click();
+
+        driver.get("https://www.facebook.com");
+
+        driver.findElement(By.xpath("//div/a[@class=\"_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy\"]")).submit();
 
 
 
