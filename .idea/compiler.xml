@@ -9,5 +9,8 @@
         <module name="udemy" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="udemy" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
