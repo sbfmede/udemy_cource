@@ -1,12 +1,12 @@
 import com.google.common.collect.Table;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.swing.*;
 import java.time.Duration;
 
 public class MainClass {
@@ -16,41 +16,26 @@ public class MainClass {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\otikhanov\\Apps\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-       /*driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
-        driver.findElement(By.xpath("//div/input[@id=\"searchButton\"]")).click();
+        driver.get("https://www.ebay.com");
+        WebElement link = driver.findElement(By.xpath("//div[@role='main']//li[@data-currenttabindex='0']/a[text()='Electronics']"));
 
-        driver.get("https://github.com/");
+        Actions actions = new Actions(driver);
+        actions.moveToElement(link).build().perform();
 
-        WebElement button = driver.findElement(By.xpath("//div/button[@class=\"btn-mktg width-full width-sm-auto btn-primary-mktg\"]"));
-        if (button.getText().equals("Sign up for GitHub")) {
-            System.out.println("Success!");
-        }
-        else System.out.println("Fail!");
+        driver.findElement(By.xpath("//a[text()='Apple']")).click();
+
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+        jse.executeScript("window.scrollBy(0, 10000)","");
+        jse.executeScript("window.scrollBy(0, -10000)","");
+        jse.executeScript("alert('Hello World!!');");
 
 
-        System.out.println();
 
-        //button.submit();
-
-        driver.findElement(By.xpath("//div/a[@class=\"HeaderMenu-link flex-shrink-0 no-underline\"]")).click();
-
-        driver.get("https://www.facebook.com");
-
-        driver.findElement(By.xpath("//div/a[@class=\"_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy\"]")).submit();
-
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getCurrentUrl());*/
-
-        driver.get("https://www.yahoo.com/");
-        driver.findElement(By.xpath("//a[@class='_yb_1qnnr']")).click();
-        WebDriverWait wait = (new WebDriverWait(driver,5));
-        wait.until((ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@id='login-ad-rich']"))));
-
-        driver.findElement(By.xpath("//a[@class='_yb_1qnnr']")).click();
-        driver.findElement(By.xpath("//a[@id='createacc']")).click();
+        //driver.quit();
          }
 }
