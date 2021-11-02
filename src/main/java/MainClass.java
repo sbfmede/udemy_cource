@@ -29,13 +29,16 @@ public class MainClass {
         driver.findElement(By.xpath("//a[text()='Apple']")).click();
 
         JavascriptExecutor jse = (JavascriptExecutor)driver;
+        Thread.sleep(3000);
 
         jse.executeScript("window.scrollBy(0, 10000)","");
+        Thread.sleep(3000);
         jse.executeScript("window.scrollBy(0, -10000)","");
         jse.executeScript("alert('Hello World!!');");
 
+        Thread.sleep(5000);
 
 
-        //driver.quit();
+        driver.quit();
          }
 }
